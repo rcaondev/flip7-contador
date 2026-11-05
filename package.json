@@ -1,0 +1,30 @@
+{
+  "name": "placar",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "apk": "vite build && cap sync android && cd android && .\\gradlew.bat assembleDebug && cd .. && node -e \"require('fs').copyFileSync('android/app/build/outputs/apk/debug/app-debug.apk','../placar-flip7.apk')\""
+  },
+  "dependencies": {
+    "@capacitor/app": "^8.1.2",
+    "@capacitor/core": "^8.6.0",
+    "@capacitor/haptics": "^8.0.2",
+    "@capacitor/preferences": "^8.0.1",
+    "@fontsource-variable/fredoka": "^5.3.0",
+    "vue": "^3.5.44"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^8.6.0",
+    "@capacitor/cli": "^8.6.0",
+    "@tailwindcss/vite": "^4.3.4",
+    "@vitejs/plugin-vue": "^6.0.10",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^4.3.4",
+    "vite": "^8.3.6"
+  },
+  "author": "Rodrigo Caon (https://rodrigocaon.com.br)"
+}

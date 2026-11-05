@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#4f46e5"/></linearGradient>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6ee7b7"/><stop offset="1" stop-color="#0d9488"/></linearGradient>
+    <linearGradient id="p" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f472b6"/><stop offset="1" stop-color="#e11d48"/></linearGradient>
+    <filter id="s" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#000" flood-opacity=".45"/></filter>
+  </defs>
+  <g filter="url(#s)">
+    <rect x="392" y="330" width="240" height="340" rx="36" fill="url(#b)" stroke="#bae6fd" stroke-width="14" transform="rotate(-17 512 820)"/>
+    <rect x="392" y="330" width="240" height="340" rx="36" fill="url(#g)" stroke="#a7f3d0" stroke-width="14" transform="rotate(17 512 820)"/>
+    <rect x="382" y="300" width="260" height="368" rx="40" fill="url(#p)" stroke="#fbcfe8" stroke-width="16"/>
+    <path d="M452 392 H572 L494 590" fill="none" stroke="#fff" stroke-width="54" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

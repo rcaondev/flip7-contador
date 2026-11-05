@@ -1,0 +1,6 @@
+{
+  "appId": "com.rcaon.placarflip7",
+  "appName": "Placar Flip 7",
+  "webDir": "dist",
+  "android": { "backgroundColor": "#0f0a1e" }
+}

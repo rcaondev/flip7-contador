@@ -1,6 +1,6 @@
 # Placar Flip 7
 
-App Android simples e leve para marcar a pontuação de partidas de **Flip 7** — chega de caderno.
+App Android simples e leve para marcar a pontuação de partidas de **Flip 7**.
 
 ## Funcionalidades
 

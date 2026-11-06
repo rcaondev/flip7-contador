@@ -1,7 +1,8 @@
 <script setup>
 import { ref, computed } from 'vue'
-import { state, ranking, saveRound, undoRound, finishGame, startGame, haptic, FLIP7_BONUS } from '../store'
+import { state, ranking, saveRound, undoRound, finishGame, startGame, haptic } from '../store'
 import AnimatedNumber from './AnimatedNumber.vue'
+import RoundsTable from './RoundsTable.vue'
 import RoundSheet from './RoundSheet.vue'
 import ConfirmModal from './ConfirmModal.vue'
 import Confetti from './Confetti.vue'
@@ -98,34 +99,7 @@ const pct = (t) => Math.min(100, Math.max(0, (t / game.value.target) * 100))
       </TransitionGroup>
 
       <!-- tabela de rodadas -->
-      <div v-else class="card overflow-x-auto p-3">
-        <p v-if="!game.rounds.length" class="p-6 text-center text-white/40">Nenhuma rodada ainda</p>
-        <table v-else class="w-full text-center tabular-nums">
-          <thead>
-            <tr class="text-sm text-white/50">
-              <th class="p-2 text-left">#</th>
-              <th v-for="p in game.players" :key="p.id" class="p-2">
-                <span class="inline-block h-3 w-3 rounded-full align-middle" :style="{ background: p.color }" />
-                <div class="max-w-16 truncate">{{ p.name }}</div>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(r, i) in game.rounds" :key="i" class="border-t border-white/5 active:bg-white/10" @click="sheet = { index: i }">
-              <td class="p-2 text-left text-white/40">{{ i + 1 }} ✏️</td>
-              <td v-for="p in game.players" :key="p.id" class="p-2 font-bold"
-                :class="r.bust?.includes(p.id) ? 'text-rose-300' : r.flip7?.includes(p.id) ? 'text-amber-300' : ''">
-                {{ r.bust?.includes(p.id) ? '💥' : r.scores[p.id] }}{{ r.flip7?.includes(p.id) ? '⭐' : '' }}
-              </td>
-            </tr>
-            <tr class="border-t-2 border-white/20 text-lg">
-              <td class="p-2 text-left font-black">Σ</td>
-              <td v-for="p in game.players" :key="p.id" class="p-2 font-black">{{ ranked.find((x) => x.id === p.id).total }}</td>
-            </tr>
-          </tbody>
-        </table>
-        <p v-if="game.rounds.length" class="px-2 pt-2 text-xs text-white/40">Toque numa rodada para corrigir · ⭐ inclui +{{ FLIP7_BONUS }}</p>
-      </div>
+      <RoundsTable v-else class="card p-3" :game="game" editable @edit="(i) => (sheet = { index: i })" />
     </main>
 
     <!-- ações -->

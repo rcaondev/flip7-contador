@@ -2,6 +2,7 @@
 import { ref, computed } from 'vue'
 import { state, ranking, playerStats, deleteHistory } from '../store'
 import ConfirmModal from './ConfirmModal.vue'
+import RoundsTable from './RoundsTable.vue'
 defineEmits(['back'])
 
 const tab = ref('ranking')
@@ -58,10 +59,12 @@ function remove() { deleteHistory(toDelete.value); toDelete.value = null }
             </div>
             <span class="text-white/40">{{ open === g.id ? '▲' : '▼' }}</span>
           </div>
-          <div v-if="open === g.id" class="mt-3 space-y-1.5">
+          <div v-if="open === g.id" class="mt-3 space-y-1.5" @click.stop>
             <div v-for="(p, i) in r" :key="p.id" class="flex justify-between rounded-xl bg-white/5 px-3 py-1.5">
               <span>{{ medal(i) }} {{ p.name }}</span><span class="font-black tabular-nums">{{ p.total }}</span>
             </div>
+            <div class="pt-3 text-xs font-bold uppercase tracking-widest text-white/40">Rodada a rodada</div>
+            <RoundsTable :game="g" class="-mx-1 rounded-xl bg-white/5 p-1 text-sm" />
             <button class="mt-2 w-full py-2 text-sm text-rose-300" @click.stop="toDelete = g.id">🗑️ Apagar partida</button>
           </div>
         </li>
